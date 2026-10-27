@@ -1,5 +1,8 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
+import { SIDE_A, SIDE_B, type AlbumSide } from "./albumdata";
+import { CdBrandLabel, CdDisc, cd } from "./CDisk";
+import { DARK, INK, SCRIPT, TEAL, u } from "./design";
 
 /**
  * Bố cục trang Home-Intro (chỉ desktop).
@@ -16,33 +19,7 @@ import type { CSSProperties } from "react";
 const DESIGN_W = 2064;
 const DESIGN_H = 1080;
 const LEFT_PANEL_W = 1079; // bề rộng nửa trái (nền xanh)
-
-const TEAL = "#339c9d";
-const DARK = "#022327";
-const INK = "#0a3b40";
-
-/** Đổi số đơn vị thiết kế thành giá trị CSS co giãn theo màn hình. */
-const u = (n: number) => `calc(var(--u) * ${n})`;
-
-/** Font chữ thảo. Định nghĩa biến --font-script trong layout (xem hướng dẫn). */
-const SCRIPT = "font-[family-name:var(--font-script,cursive)] font-normal";
-
-type Track = { label: string; title: string; href: string };
-
-// TODO: sửa chữ + đường dẫn
-const SIDE_A: Track[] = [
-  { label: "PRELUDE", title: "About Me", href: "/aboume" },
-  { label: "TRACK 01", title: "Finding My Voice", href: "/track1" },
-  { label: "TRACK 02", title: "Social Impact & Community", href: "/track2" },
-  { label: "TRACK 03", title: "Research & Publications", href: "/track3" },
-];
-
-const SIDE_B: Track[] = [
-  { label: "TRACK 04", title: "Leadership & School Life", href: "/track4" },
-  { label: "TRACK 05", title: "Sports", href: "/track5" },
-  { label: "TRACK 06", title: "Art-Performing & Visual", href: "/track6" },
-  { label: "Outro", title: "Concert & Why Music", href: "/outtro" },
-];
+const CD_SIZE = 1008;
 
 export function HomeIntro() {
   return (
@@ -61,7 +38,34 @@ export function HomeIntro() {
         className="relative shrink-0"
         style={{ width: u(DESIGN_W), height: u(DESIGN_H) }}
       >
-        <CdDisc />
+        <CdDisc
+          size={CD_SIZE}
+          className="z-0"
+          style={{ left: u(1012), top: u(36) }}
+        >
+          {/* Năm (góc trên trái của đĩa) */}
+          <ul
+            className={`absolute `}
+            style={{
+              left: cd(195 / CD_SIZE),
+              top: cd(224 / CD_SIZE),
+              fontSize: cd(40 / CD_SIZE),
+              lineHeight: cd(46 / CD_SIZE),
+            }}
+          >
+            <li style={{ color: "#6fbcbc" }}>
+              202<span className={` ${SCRIPT}`}>4</span>
+            </li>
+            <li style={{ color: "#2f9a9a" }}>
+              202<span className={` ${SCRIPT}`}>5</span>
+            </li>
+            <li style={{ color: INK }}>
+              202<span className={`  ${SCRIPT}`}>6 </span>
+            </li>
+          </ul>
+
+          <CdBrandLabel />
+        </CdDisc>
         <LeftPanel />
       </div>
     </main>
@@ -105,23 +109,13 @@ function LeftPanel() {
           gridTemplateColumns: `${u(534)} ${u(492)}`,
         }}
       >
-        <Side
-          name="SIDE A"
-          subtitle="The Making"
-          description={"Who I am,\nwhat I question,\nwhat I build."}
-          tracks={SIDE_A}
-        />
-        <Side
-          name="SIDE B"
-          subtitle="The Becoming"
-          description={"What I have explored,\nled,\nand loved."}
-          tracks={SIDE_B}
-        />
+        <Side {...SIDE_A} />
+        <Side {...SIDE_B} />
       </div>
 
       {/* Nút "Choose a Song and Watch My Portfolio" */}
       <Link
-        href="/aboutme" // TODO: đường dẫn trang portfolio
+        href="#" // TODO: đường dẫn trang portfolio
         className="group absolute flex items-center"
         style={{ right: u(41), bottom: u(27), gap: u(22) }}
       >
@@ -157,17 +151,7 @@ function LeftPanel() {
   );
 }
 
-function Side({
-  name,
-  subtitle,
-  description,
-  tracks,
-}: {
-  name: string;
-  subtitle: string;
-  description: string;
-  tracks: Track[];
-}) {
+function Side({ name, subtitle, description, tracks }: AlbumSide) {
   return (
     <div>
       {/* Đầu cột */}
@@ -202,116 +186,16 @@ function Side({
             <Link
               href={track.href}
               className="flex items-center whitespace-nowrap transition-opacity hover:opacity-70"
-              style={{ height: u(123), fontSize: u(33), gap: u(12) }}
+              style={{ height: u(123), fontSize: u(32), gap: u(12) }}
             >
               <span>{track.label}:</span>
-              <span className={SCRIPT} style={{ fontSize: u(33) }}>
+              <span className={SCRIPT} style={{ fontSize: u(32) }}>
                 {track.title}
               </span>
             </Link>
           </li>
         ))}
       </ul>
-    </div>
-  );
-}
-
-/* ------------------------------------------------------------------ */
-/* Nửa phải: đĩa CD (tràn sang nửa trái một chút)                      */
-/* ------------------------------------------------------------------ */
-
-function CdDisc() {
-  return (
-    <div
-      className="absolute z-0 rounded-full"
-      style={{
-        left: u(1012),
-        top: u(36),
-        width: u(1008),
-        height: u(1008),
-        background: "#fbfcec",
-        boxShadow: `${u(6)} ${u(8)} ${u(10)} rgba(0,0,0,0.45)`,
-      }}
-    >
-      {/* Mặt đĩa. TODO: thay bằng ảnh thật, ví dụ:
-          <Image src="/cd-face.png" alt="" fill className="rounded-full object-cover" /> */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          inset: u(24),
-          background: `
-            conic-gradient(from 15deg,
-              rgba(255,255,255,0.45) 0deg 70deg,
-              rgba(255,255,255,0) 70deg 140deg,
-              rgba(255,255,255,0.35) 140deg 215deg,
-              rgba(255,255,255,0) 215deg 290deg,
-              rgba(255,255,255,0.4) 290deg 360deg),
-            radial-gradient(circle at center, #86c5c7 0%, #bfdedb 30%, #eaf3e8 60%, #fbfcec 85%)
-          `,
-        }}
-      />
-
-      {/* Vành xanh nhạt */}
-      <div
-        className="absolute rounded-full"
-        style={{
-          inset: u(21),
-          border: `${u(3)} solid #b5ecfb`,
-        }}
-      />
-
-      {/* Lỗ giữa đĩa */}
-      <div
-        className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
-        style={{
-          width: u(143),
-          height: u(143),
-          background: "#9fe7fb",
-          boxShadow: `inset ${u(-4)} ${u(-4)} ${u(8)} rgba(0,0,0,0.25)`,
-        }}
-      >
-        <div
-          className="flex items-center justify-center rounded-full bg-white"
-          style={{ width: u(118), height: u(118) }}
-        >
-          <div
-            className="rounded-full"
-            style={{ width: u(82), height: u(82), background: "#8be8ff" }}
-          />
-        </div>
-      </div>
-
-      {/* Năm (góc trên trái của đĩa) */}
-      <ul
-        className={`absolute  `}
-        style={{
-          left: u(195),
-          top: u(224),
-          fontSize: u(40),
-          lineHeight: u(46),
-        }}
-      >
-        <li style={{ color: "#6fbcbc" }}>
-          202<span className={SCRIPT}>4</span>
-        </li>
-        <li style={{ color: "#2f9a9a" }}>
-          202<span className={SCRIPT}>5</span>
-        </li>
-        <li style={{ color: INK }}>
-          202<span className={SCRIPT}>6</span>
-        </li>
-      </ul>
-
-      {/* Nhãn "Lindsey's CD" (góc dưới phải của đĩa) */}
-      <p
-        className="absolute flex items-baseline leading-none"
-        style={{ left: u(587), top: u(742), gap: u(14) }}
-      >
-        <span className={SCRIPT} style={{ fontSize: u(84) }}>
-          Lindsey&apos;s
-        </span>
-        <span style={{ fontSize: u(62) }}>CD</span>
-      </p>
     </div>
   );
 }
