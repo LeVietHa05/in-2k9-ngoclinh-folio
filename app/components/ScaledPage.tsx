@@ -18,7 +18,7 @@ const PAGE_REF_H = 1080;
 export function ScaledPage({ children }: { children: ReactNode }) {
   return (
     <div
-      className="min-h-screen w-full"
+      className="min-h-screen w-full overflow-x-clip"
       style={
         {
           containerType: "inline-size",

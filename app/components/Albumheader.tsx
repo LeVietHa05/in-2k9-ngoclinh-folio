@@ -16,9 +16,15 @@ export type AlbumHeaderProps = {
   sideB?: AlbumSide;
   portfolioHref?: string;
   activeLabel?: string;
-  /** Ảnh trang trí (con bướm). Bỏ trống để hiện khung placeholder. */
+  /** Đường dẫn ảnh trang trí trong /public. Mặc định là con bướm. */
+  decorationSrc?: string;
+  /** Mô tả ảnh. Để "" nếu ảnh chỉ để trang trí. */
+  decorationAlt?: string;
+  /** Ảnh trang trí (con bướm). Bỏ trống để hiện khung mặc định. */
   decoration?: ReactNode;
 };
+
+const DEFAULT_DECORATION = "/about/butterfly.png";
 
 export function AlbumHeader({
   albumName = "NgocLinh's Album",
@@ -26,6 +32,8 @@ export function AlbumHeader({
   sideB = SIDE_B,
   portfolioHref = "/about",
   activeLabel,
+  decorationSrc = DEFAULT_DECORATION,
+  decorationAlt = "",
   decoration,
 }: AlbumHeaderProps) {
   return (
@@ -73,9 +81,13 @@ export function AlbumHeader({
           style={{ left: u(1285), top: u(109), width: u(401), height: u(389) }}
         >
           {decoration ?? (
-            <div className="flex h-full w-full items-center justify-center text-center">
-              <Image src={"/about/butterfly.png"} alt="" fill />
-            </div>
+            <Image
+              src={decorationSrc}
+              alt={decorationAlt}
+              fill
+              sizes="25vw"
+              className="object-contain"
+            />
           )}
         </div>
 

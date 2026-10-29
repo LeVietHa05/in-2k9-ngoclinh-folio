@@ -21,6 +21,8 @@ type CdDiscProps = {
   style?: CSSProperties;
   children?: ReactNode;
   spinSeconds?: number;
+  /** Hiện lỗ giữa đĩa. Mặc định true */
+  hole?: boolean;
 };
 
 export function CdDisc({
@@ -29,6 +31,7 @@ export function CdDisc({
   style,
   children,
   spinSeconds = 12,
+  hole = true,
 }: CdDiscProps) {
   return (
     <div
@@ -79,25 +82,27 @@ export function CdDisc({
         />
 
         {/* Lỗ giữa đĩa */}
-        <div
-          className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
-          style={{
-            width: f(143),
-            height: f(143),
-            background: "#9fe7fb",
-            boxShadow: `inset ${f(-4)} ${f(-4)} ${f(8)} rgba(0,0,0,0.25)`,
-          }}
-        >
+        {hole && (
           <div
-            className="flex items-center justify-center rounded-full bg-white"
-            style={{ width: f(118), height: f(118) }}
+            className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full"
+            style={{
+              width: f(143),
+              height: f(143),
+              background: "#9fe7fb",
+              boxShadow: `inset ${f(-4)} ${f(-4)} ${f(8)} rgba(0,0,0,0.25)`,
+            }}
           >
             <div
-              className="rounded-full"
-              style={{ width: f(82), height: f(82), background: "#8be8ff" }}
-            />
+              className="flex items-center justify-center rounded-full bg-white"
+              style={{ width: f(118), height: f(118) }}
+            >
+              <div
+                className="rounded-full"
+                style={{ width: f(82), height: f(82), background: "#8be8ff" }}
+              />
+            </div>
           </div>
-        </div>
+        )}
       </div>
       {children}
     </div>

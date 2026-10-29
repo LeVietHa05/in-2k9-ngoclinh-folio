@@ -21,7 +21,10 @@ type TrackPageProps = {
   photos?: CarouselPhoto[];
   /** Thay section trên cùng nếu muốn (mặc định là <AlbumHeader />) */
   header?: ReactNode;
-  activeLabel?: string
+  activeLabel?: string;
+  decorationSrc?: string;
+  decorationAlt?: string;
+  children?: ReactNode;
 };
 
 export function TrackPage({
@@ -33,10 +36,19 @@ export function TrackPage({
   photos,
   header,
   activeLabel,
+  decorationSrc,
+  decorationAlt,
+  children,
 }: TrackPageProps) {
   return (
     <ScaledPage>
-      {header ?? <AlbumHeader activeLabel={activeLabel}/>}
+      {header ?? (
+        <AlbumHeader
+          activeLabel={activeLabel}
+          decorationAlt={decorationAlt}
+          decorationSrc={decorationSrc}
+        />
+      )}
 
       {/* Đĩa CD + thẻ nội dung */}
       <section className="w-full">
@@ -109,13 +121,23 @@ export function TrackPage({
         </div>
       </section>
 
+      {children}
+
       {/* Carousel ảnh */}
       <section
         className="w-full"
         style={{ paddingTop: u(68), paddingBottom: u(240) }}
       >
-        <PhotoCarousel photos={photos} />
+        {photos && <PhotoCarousel photos={photos} />}
       </section>
+
+      {header ?? (
+        <AlbumHeader
+          activeLabel={activeLabel}
+          decorationAlt={decorationAlt}
+          decorationSrc={decorationSrc}
+        />
+      )}
     </ScaledPage>
   );
 }
