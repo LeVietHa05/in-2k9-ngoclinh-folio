@@ -14,6 +14,7 @@ type SectionDecorationProps = {
   butterfly?: { x: number; y: number; w: number };
   /** Độ mờ của đĩa, 0 đến 1 */
   discOpacity?: number;
+  hole?: boolean;
 };
 
 export function SectionDecoration({
@@ -23,6 +24,7 @@ export function SectionDecoration({
   butterflySrc = "/about/butterfly.png",
   butterfly = { x: 0.1, y: 0, w: 0.8 },
   discOpacity = 0.18,
+  hole = false,
 }: SectionDecorationProps) {
   return (
     <div
@@ -32,7 +34,7 @@ export function SectionDecoration({
     >
       <CdDisc
         size={size}
-        hole={false}
+        hole={hole}
         style={{ left: 0, top: 0, opacity: discOpacity, boxShadow: "none" }}
       />
       {butterflySrc ? (
