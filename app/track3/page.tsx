@@ -7,7 +7,7 @@ import { PUBLISH_PHOTO, RESEARCH_PHOTO, IC_PHOTO, YALE_PHOTO } from "./photo";
 import { Collage } from "../components/Collage";
 import { SectionDecoration } from "../components/SectionDecoration";
 
-export default function AboutPage() {
+export default function Track03Page() {
   return (
     <TrackPage
       activeLabel="track 03"

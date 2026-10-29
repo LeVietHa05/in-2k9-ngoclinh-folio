@@ -6,7 +6,7 @@ import { MC_PHOTOS, DEBATE_PHOTO, SPEAKING_PHOTO, BUSINESS } from "./photo";
 import { Collage } from "../components/Collage";
 import { SectionDecoration } from "../components/SectionDecoration";
 
-export default function AboutPage() {
+export default function Track01Page() {
   return (
     <TrackPage
       activeLabel="track 01"

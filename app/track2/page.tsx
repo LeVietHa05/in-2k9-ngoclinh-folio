@@ -13,7 +13,7 @@ import {
 import { Collage } from "../components/Collage";
 import { SectionDecoration } from "../components/SectionDecoration";
 
-export default function AboutPage() {
+export default function Track02Page() {
   return (
     <TrackPage
       activeLabel="track 02"
