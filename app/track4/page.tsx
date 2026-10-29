@@ -16,8 +16,9 @@ import { CaptionedImage } from "../components/CaptionedImage";
 import { getFolderPhotos } from "@/lib/folderPhoto";
 import { PhotoRows, splitRows } from "@/app/components/PhotoRows";
 
+import { Suspense } from "react";
+
 export default async function Track04Page() {
-  const photos = await getFolderPhotos("track4/ha");
   return (
     <TrackPage
       activeLabel="track 04"
@@ -213,9 +214,16 @@ export default async function Track04Page() {
           </SectionText>
         </div>
         <div className=" " style={{ gap: u(0), marginTop: u(30) }}>
-          <PhotoRows rows={splitRows(photos, [5, 6, 5])} gap={12} />
+          <Suspense fallback={<div style={{ height: u(900) }} />}>
+            <AwardsGallery />
+          </Suspense>
         </div>
       </SectionShell>
     </TrackPage>
   );
+}
+
+async function AwardsGallery() {
+  const photos = await getFolderPhotos("track4/ha");
+  return <PhotoRows rows={splitRows(photos, [5, 6, 5])} gap={12} />;
 }
