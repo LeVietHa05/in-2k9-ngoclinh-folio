@@ -16,13 +16,35 @@ const DEFAULT_PHOTOS: CarouselPhoto[] = Array.from({ length: 7 }, (_, i) => ({
   alt: `Photo ${i + 1}`,
 }));
 
-const OFFSETS = [-2, -1, 0, 1, 2];
 const SIDE_SIZE = { w: 296, h: 389 };
 const CENTER_SIZE = { w: 335, h: 496 };
 const GAP = 27;
+const VISIBLE_RADIUS = 2; // hiện 2 ảnh mỗi bên ảnh giữa
+const BUFFER = 1; // thêm 1 ảnh vô hình mỗi bên để có chỗ trượt vào và ra
+
+const OFFSETS = Array.from(
+  { length: (VISIBLE_RADIUS + BUFFER) * 2 + 1 },
+  (_, i) => i - (VISIBLE_RADIUS + BUFFER),
+);
+
+/** Toạ độ cạnh trái của ảnh ở vị trí `offset` so với ảnh giữa (đơn vị u, tính từ mép trái khung) */
+function leftOf(offset: number) {
+  const center = PAGE_W / 2;
+  if (offset === 0) return center - CENTER_SIZE.w / 2;
+  const dir = Math.sign(offset);
+  const between = Math.abs(offset) - 1; // số ảnh bên nằm giữa nó và ảnh giữa
+  const centerX =
+    center +
+    dir *
+      (CENTER_SIZE.w / 2 +
+        GAP +
+        SIDE_SIZE.w / 2 +
+        between * (SIDE_SIZE.w + GAP));
+  return centerX - SIDE_SIZE.w / 2;
+}
 
 /**
- * Carousel 5 ảnh, ảnh giữa lớn hơn. Bấm mũi tên để chuyển (xoay vòng).
+ * Carousel 5 ảnh, ảnh giữa lớn hơn, trượt mượt khi bấm mũi tên (xoay vòng).
  * Phải đặt bên trong <ScaledPage> (hoặc phần tử có biến CSS `--u`).
  */
 export function PhotoCarousel({
@@ -30,7 +52,8 @@ export function PhotoCarousel({
 }: {
   photos?: CarouselPhoto[];
 }) {
-  const [index, setIndex] = useState(0);
+  // `pos` tăng giảm tự do (không wrap) để key của mỗi ảnh ổn định khi trượt
+  const [pos, setPos] = useState(0);
   const n = photos.length;
   if (n === 0) return null;
 
@@ -38,24 +61,29 @@ export function PhotoCarousel({
 
   return (
     <div
-      className="relative mx-auto flex items-center justify-center"
-      style={{ width: u(PAGE_W), height: u(CENTER_SIZE.h), gap: u(GAP) }}
+      className="relative mx-auto overflow-x-clip"
+      style={{ width: u(PAGE_W), height: u(CENTER_SIZE.h) }}
     >
-      <ArrowButton
-        direction="prev"
-        onClick={() => setIndex((i) => wrap(i - 1))}
-      />
+      <ArrowButton direction="prev" onClick={() => setPos((p) => p - 1)} />
 
       {OFFSETS.map((offset) => {
-        const photo = photos[wrap(index + offset)];
+        const vid = pos + offset;
+        const photo = photos[wrap(vid)];
         const size = offset === 0 ? CENTER_SIZE : SIDE_SIZE;
+        const visible = Math.abs(offset) <= VISIBLE_RADIUS;
+
         return (
           <div
-            key={offset}
-            className="relative shrink-0 overflow-hidden"
+            key={vid}
+            aria-hidden={!visible}
+            className={`absolute left-0 top-1/2 overflow-hidden transition-[transform,width,height,opacity] duration-700 ease-[cubic-bezier(0.22,0.61,0.36,1)] motion-reduce:transition-none ${
+              visible ? "opacity-100" : "pointer-events-none opacity-0"
+            }`}
             style={{
               width: u(size.w),
               height: u(size.h),
+              transform: `translate(${u(leftOf(offset))}, -50%)`,
+              zIndex: 10 - Math.abs(offset),
               background: "#d4e9e4",
             }}
           >
@@ -79,10 +107,7 @@ export function PhotoCarousel({
         );
       })}
 
-      <ArrowButton
-        direction="next"
-        onClick={() => setIndex((i) => wrap(i + 1))}
-      />
+      <ArrowButton direction="next" onClick={() => setPos((p) => p + 1)} />
     </div>
   );
 }
@@ -100,7 +125,7 @@ function ArrowButton({
       type="button"
       onClick={onClick}
       aria-label={isPrev ? "Ảnh trước" : "Ảnh sau"}
-      className="absolute top-1/2 flex -translate-y-1/2 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110"
+      className="absolute top-1/2 z-20 flex -translate-y-1/2 items-center justify-center rounded-full transition-transform duration-300 hover:scale-110"
       style={{
         ...(isPrev ? { left: u(36) } : { right: u(36) }),
         width: u(63),

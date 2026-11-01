@@ -36,7 +36,7 @@ export const SPEAKING_PHOTO: CollageItem[] = [
   { src: "/track1/sp-4.png", x: 286, y: 8, w: 212, h: 282 },
   { src: "/track1/sp-5.png", x: 504, y: 8, w: 211, h: 282 },
   { src: "/track1/sp-6.png", x: 721, y: 8, w: 127, h: 103 },
-  { src: "/track1/sp-7.png", x: 690, y: 115, w: 126, h: 87 },
+  { src: "/track1/sp-7.png", x: 721, y: 115, w: 126, h: 87 },
   { src: "/track1/sp-8.png", x: 721, y: 206, w: 127, h: 84 },
   { src: "/track1/sp-9.png", x: 0, y: 300, w: 281, h: 210 },
   { src: "/track1/sp-10.png", x: 287, y: 300, w: 280, h: 210 },

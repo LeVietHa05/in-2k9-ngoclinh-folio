@@ -30,7 +30,7 @@ export function PhotoRows({
             return (
               <div
                 key={j}
-                className="relative min-w-0 overflow-hidden"
+                className="relative min-w-0 overflow-hidden hover:scale-[1.03]  transition-transform duration-300"
                 style={{ flex: `${r * 1000} 1 0%`, aspectRatio: r }}
               >
                 <Image

@@ -359,7 +359,7 @@ Although I paint less now, my passion has found new forms in designing Humans of
               alt="Một số khoảnh khắc chơi piano"
               fill
               sizes="80vw"
-              className="object-cover"
+              className="object-cover hover:scale-[1.03]  transition-transform duration-300"
             />
           </RatioBox>
         </div>

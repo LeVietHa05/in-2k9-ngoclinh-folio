@@ -22,23 +22,46 @@ export const FOOTBALL_PHOTO: CollageItem[] = [
 ];
 
 export const BASKET_PHOTO: CollageItem[] = [
-  {
-    src: "/track5/basket-1.png",
-    x: 0,
-    y: 8,
-    w: 896,
-    h: 638,
-  },
+  { src: "/track5/bas-1.png", x: 0, y: 8, w: 420, h: 315 },
+  { src: "/track5/bas-2.png", x: 428, y: 8, w: 236, h: 315 },
+  { src: "/track5/bas-3.png", x: 672, y: 8, w: 232, h: 131 },
+  { src: "/track5/bas-4.png", x: 672, y: 148, w: 232, h: 176 },
+  { src: "/track5/bas-5.png", x: 0, y: 334, w: 236, h: 315 },
+  { src: "/track5/bas-6.png", x: 244, y: 334, w: 234, h: 146 },
+  { src: "/track5/bas-7.png", x: 244, y: 488, w: 234, h: 158 },
+  { src: "/track5/bas-8.png", x: 486, y: 334, w: 413, h: 315 },
 ];
 
 export const RUNNING_PHOTO: CollageItem[] = [
-  { src: "/track5/running-1.png", x: 0, y: 8, w: 890, h: 758 },
+  { src: "/track5/r-1.png", x: 0, y: 8, w: 289, h: 385 },
+  { src: "/track5/r-2.png", x: 297, y: 8, w: 289, h: 385 },
+  { src: "/track5/r-3.png", x: 594, y: 8, w: 289, h: 385 },
+  { src: "/track5/r-4.png", x: 0, y: 401, w: 289, h: 385 },
+  { src: "/track5/r-5.png", x: 297, y: 401, w: 289, h: 385 },
+  { src: "/track5/r-6.png", x: 594, y: 401, w: 289, h: 385 },
 ];
 
 export const BADMINTON_PHOTO: CollageItem[] = [
-  { src: "/track5/badminton-1.png", x: 0, y: 0, w: 823, h: 454 },
+  { src: "/track5/b-1.png", x: 0, y: 8, w: 333, h: 225 },
+  { src: "/track5/b-2.png", x: 341, y: 8, w: 200, h: 105 },
+  { src: "/track5/b-3.png", x: 341, y: 117, w: 200, h: 116 },
+  { src: "/track5/b-4.png", x: 549, y: 8, w: 118, h: 225 },
+  { src: "/track5/b-5.png", x: 675, y: 8, w: 157, h: 225 },
+  { src: "/track5/b-6.png", x: 0, y: 241, w: 334, h: 223 },
+  { src: "/track5/b-7.png", x: 342, y: 241, w: 485, h: 223 },
 ];
 
 export const DUKE: CollageItem[] = [
-  { src: "/track5/dukeofedinburgh.png", x: 0, y: 0, w: 753, h: 690 },
+  { src: "/track5/d-1.png", x: 0, y: 0, w: 174, h: 309 },
+  { src: "/track5/d-2.png", x: 174, y: 0, w: 174, h: 309 },
+  { src: "/track5/d-3.png", x: 348, y: 0, w: 174, h: 309 },
+  { src: "/track5/d-4.png", x: 522, y: 0, w: 259, h: 152 },
+  { src: "/track5/d-5.png", x: 522, y: 152, w: 259, h: 156 },
+  { src: "/track5/d-6.png", x: 0, y: 317, w: 309, h: 174 },
+  { src: "/track5/d-7.png", x: 250, y: 317, w: 309, h: 174 },
+  { src: "/track5/d-8.png", x: 559, y: 317, w: 222, h: 174 },
+  { src: "/track5/d-9.png", x: 0, y: 499, w: 254, h: 159 },
+  { src: "/track5/d-10.png", x: 262, y: 499, w: 90, h: 159 },
+  { src: "/track5/d-11.png", x: 360, y: 499, w: 253, h: 159 },
+  { src: "/track5/d-12.png", x: 621, y: 499, w: 134, h: 159 },
 ];

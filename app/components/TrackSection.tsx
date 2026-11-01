@@ -37,7 +37,7 @@ export function TrackSection({
 }: TrackSectionProps) {
   return (
     <section
-      className="relative w-full text-white"
+      className="relative w-full text-white -mt-6"
       style={{
         padding: `${u(100)} ${u(0)}`,
         background,

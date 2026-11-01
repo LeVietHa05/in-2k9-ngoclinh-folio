@@ -138,7 +138,7 @@ export default async function Track04Page() {
             </SectionText>
           </div>
           <div className="shrink-0" style={{ width: u(1050) }}>
-            <Collage width={827} height={456} items={BADMINTON_PHOTO} />
+            <Collage width={827} height={470} items={BADMINTON_PHOTO} />
           </div>
         </div>
         <div>

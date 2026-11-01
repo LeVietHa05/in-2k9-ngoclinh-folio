@@ -111,7 +111,7 @@ export default function Track02Page() {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <Link className="underline"
                     href={
                       "https://hanoionline.vn/y-nghia-cuoc-thi-sang-kien-xa-hoi-danh-cho-hoc-sinh-thpt-246406578.htm"
                     }
@@ -120,7 +120,7 @@ export default function Track02Page() {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <Link className="underline"
                     href={
                       "https://www.vietnam.vn/en/hoc-sinh-28-truong-thpt-tim-loi-giai-cho-nhieu-van-de-nong-cua-cong-dong"
                     }
@@ -130,7 +130,7 @@ export default function Track02Page() {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <Link className="underline"
                     href={
                       "https://isph.edu.vn/isph-student-successfully-organizes-hssic-2026/"
                     }
@@ -139,7 +139,7 @@ export default function Track02Page() {
                   </Link>
                 </li>
                 <li>
-                  <Link
+                  <Link className="underline"
                     href={
                       "https://www.facebook.com/ISPHanoi/posts/pfbid0NP7dH6vpYqU9jxYfcVaGbD7Hp8H9XJm9dzoB3qtXxufvKeAftkwu4NnAnFb4ft6ul?mibextid=wwXIfr"
                     }
