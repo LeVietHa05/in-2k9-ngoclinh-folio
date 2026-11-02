@@ -19,7 +19,7 @@ export function SectionShell({
 }: SectionShellProps) {
   return (
     <section
-      className="relative w-full text-white -mt-6"
+      className="relative w-full text-white -mt-8"
       style={{
         padding: `${u(100)} 0`,
         background,

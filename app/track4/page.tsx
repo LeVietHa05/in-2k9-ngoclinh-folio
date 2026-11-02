@@ -15,6 +15,7 @@ import { CaptionedImage } from "../components/CaptionedImage";
 
 import { getFolderPhotos } from "@/lib/folderPhoto";
 import { PhotoRows, splitRows } from "@/app/components/PhotoRows";
+import { ItemCarousel } from "../components/ItemCarousel";
 
 import { Suspense } from "react";
 
@@ -83,42 +84,73 @@ export default async function Track04Page() {
             watching them bring their ideas to life.
           </SectionText>
         </div>
-        <div
-          className="flex justify-center"
-          style={{ gap: u(16), marginTop: u(70) }}
-        >
-          <Link href={"https://humansofisph.org/"}>
-            <CaptionedImage
-              src="/track4/h-1.png"
-              caption="Pilot Issue - September 2025"
-              width={316}
-              height={447}
-            />
-          </Link>
-          <Link href={"https://humansofisph.org/"}>
-            <CaptionedImage
-              src="/track4/h-2.png"
-              caption="Issue #1 - October 2025"
-              width={316}
-              height={447}
-            />
-          </Link>
-          <Link href={"https://humansofisph.org/"}>
-            <CaptionedImage
-              src="/track4/h-3.png"
-              caption="Issue #2 - November 2025"
-              width={316}
-              height={447}
-            />
-          </Link>
-          <Link href={"https://humansofisph.org/"}>
-            <CaptionedImage
-              src="/track4/h-4.png"
-              caption="Issue #3 - December 2025"
-              width={316}
-              height={447}
-            />
-          </Link>
+        <div style={{ marginTop: u(70) }}>
+          <ItemCarousel itemWidth={316} gap={16} visible={4}>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-1.png"
+                caption="Pilot Issue - September 2025"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-2.png"
+                caption="Issue #1 - October 2025"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-3.png"
+                caption="Issue #2 - November 2025"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-4.png"
+                caption="Issue #3 - December 2025"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-5.png"
+                caption="Issue #4 - Jan/Feb  2026"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-6.png"
+                caption="Issue #5 - March/April  2026"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-7.png"
+                caption="Issue #6 - May/June  2026"
+                width={316}
+                height={447}
+              />
+            </Link>
+            <Link href={"https://humansofisph.org/"}>
+              <CaptionedImage
+                src="/track4/h-8.png"
+                caption="Issue #7 - Aug/Sep  2026"
+                width={316}
+                height={447}
+              />
+            </Link>
+          </ItemCarousel>
         </div>
       </SectionShell>
 

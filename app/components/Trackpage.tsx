@@ -126,7 +126,7 @@ export function TrackPage({
       {/* Carousel ảnh */}
       <section
         className="w-full"
-        style={{ paddingTop: u(68), paddingBottom: u(240) }}
+        style={{ paddingTop: u(68), paddingBottom: u(80) }}
       >
         {photos && <PhotoCarousel photos={photos} />}
       </section>

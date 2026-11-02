@@ -45,6 +45,18 @@ const photo = [
     src: "/about/11.png",
     alt: "11",
   },
+  {
+    src: "/about/12.png",
+    alt: "12",
+  },
+  {
+    src: "/about/13.png",
+    alt: "13",
+  },
+  {
+    src: "/about/14.png",
+    alt: "14",
+  },
 ];
 
 export default function AboutPage() {

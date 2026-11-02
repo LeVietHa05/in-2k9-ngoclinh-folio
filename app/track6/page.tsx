@@ -311,7 +311,12 @@ Although I paint less now, my passion has found new forms in designing Humans of
         custom={
           <Link
             className={SCRIPT}
-            style={{ marginTop: "12px", display: "block" }}
+            style={{
+              fontSize: u(36),
+              textDecoration: "underline",
+              marginTop: "12px",
+              display: "block",
+            }}
             href={
               "https://drive.google.com/drive/folders/15AIoxCi-up87oLvAkF2P8vU1ljg7PjC8"
             }

@@ -115,7 +115,10 @@ export default async function Track04Page() {
             </SectionText>
             <Link
               className={SCRIPT}
-              style={{ fontSize: "24px" }}
+              style={{
+                fontSize: u(36),
+                textDecoration: "underline",
+              }}
               href={"https://www.youtube.com/@lindseysconcertvideos/videos"}
             >
               Visit my Youtube
