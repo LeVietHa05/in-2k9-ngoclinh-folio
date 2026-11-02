@@ -96,7 +96,7 @@ function LeftPanel() {
           </span>
         </h1>
         <span className="font-light" style={{ fontSize: u(44) }}>
-          Lindsey
+          NgocLinh's Album
         </span>
       </header>
 
