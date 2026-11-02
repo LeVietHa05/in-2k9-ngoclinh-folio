@@ -30,6 +30,18 @@ const photo = [
     alt: "7",
   },
   {
+    src: "/about/12.png",
+    alt: "12",
+  },
+  {
+    src: "/about/13.png",
+    alt: "13",
+  },
+  {
+    src: "/about/14.png",
+    alt: "14",
+  },
+  {
     src: "/about/8.png",
     alt: "8",
   },
@@ -44,18 +56,6 @@ const photo = [
   {
     src: "/about/11.png",
     alt: "11",
-  },
-  {
-    src: "/about/12.png",
-    alt: "12",
-  },
-  {
-    src: "/about/13.png",
-    alt: "13",
-  },
-  {
-    src: "/about/14.png",
-    alt: "14",
   },
 ];
 
