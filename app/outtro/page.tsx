@@ -133,7 +133,7 @@ export default async function Track04Page() {
           show that gives seasoned performers a chance to reinvent themselves
           and prove that there&apos;s always a new note to discover. Watching
           34+ artists turn the stage into their home with breathtaking
-          arrangements, costumes, choreography never gets old. Here are some
+          the arrangements, costumes, and choreography never gets old. Here are some
           snapshots of me being unapologetically a fangirl, when I can put aside
           being a leader and just blend into the crowd, carried by the same
           music and beating to the same rhythm.

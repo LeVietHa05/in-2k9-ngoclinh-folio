@@ -67,7 +67,7 @@ export default async function Track04Page() {
       </TrackSection>
 
       <TrackSection
-        title="Runnning"
+        title="Running"
         text="Running was the last sport I expected to pick up, but here we are. It's tested my endurance and consistency, and nothing beats finishing a run feeling stronger than when I started. Races are surprisingly fun, especially with that good kind of peer pressure. Add Spotify to the mix, and I'm sold. #notsponsored"
         background="#73BBBD"
         decoration={
@@ -145,7 +145,7 @@ export default async function Track04Page() {
           <SectionText>
             <div className="text-center">
               Enjoy this (rare) badminton highlight that features some
-              surprisingly decent shots and a little side commentaries from my
+              surprisingly decent shots and a few side commnents from my
               friends!
             </div>
           </SectionText>

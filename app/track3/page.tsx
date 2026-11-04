@@ -12,14 +12,14 @@ export default function Track03Page() {
     <TrackPage
       activeLabel="track 03"
       label="TRACK 03:"
-      title="Research & Publlications"
+      title="Research & Publications"
       paragraphs={[
         "Some questions stay with me long enough to become research. From educational access for ethnic minority girls to AI and gender inequality, I explore questions about opportunity, stereotypes, and technology through literature reviews, data collection, and independent research. For me, research is about slowing down, looking closer, and asking better questions.",
       ]}
       decorationSrc="/track1/header-butterfly.png"
     >
       <TrackSection
-        title="Published researches"
+        title="Published Research"
         text="My published research explores gender equality and the experiences of marginalised communities. Seeing my work recognised by experts has been deeply rewarding, while working with mentors has broadened my perspective and strengthened my analytical skills. Each paper adds a new verse to my ongoing conversation with society."
         background="#73BBBD"
         decoration={
@@ -45,7 +45,7 @@ export default function Track03Page() {
                     }
                   >
                     Barriers to Accessing Educational Services for Female
-                    Students in Ehtnic Minority Areas
+                    Students in Ethnic Minority Areas
                   </Link>
                 </li>
                 <li>
